@@ -1,0 +1,320 @@
+:root {
+  --window-border-radius: 12px;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --primary-active: #004085;
+  --border-color: #ced4da;
+  --text-color: #ffffff;
+  --secondary-text: #495057;
+  --light-bg: #ffffff;
+  --medium-bg: #f8f9fa;
+  --dark-bg: #e9ecef;
+  --error-color: #dc3545;
+  --error-bg: #f8d7da;
+  --error-border: #f5c6cb;
+}
+
+body.popup {
+  width: 300px;
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  border-radius: var(--window-border-radius);
+  overflow: hidden;
+}
+
+.deepvue-bridge-container {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 12px;
+  text-align: center;
+  border-radius: var(--window-border-radius);
+  background: linear-gradient(180deg, var(--light-bg) 0%, var(--medium-bg) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* Error message styles */
+.error-message {
+  width: calc(100% - 24px);
+  margin: 8px 0;
+  padding: 8px 12px;
+  background-color: var(--error-bg);
+  color: var(--error-color);
+  border: 1px solid var(--error-border);
+  border-radius: 4px;
+  font-size: 0.8em;
+  text-align: center;
+  display: none;
+}
+
+/* Header Styles */
+.header-with-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.tradeinski-header {
+  display: block;
+  width: calc(100% - 16px);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 0;
+  border-radius: 6px;
+  margin: 0 auto;
+  transition: background-color 0.2s ease;
+}
+
+.tradeinski-header:hover {
+  background-color: var(--primary-hover);
+}
+
+.hamburger {
+  font-size: 1.3em;
+  padding: 4px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  align-self: center;
+}
+
+/* Settings Menu */
+.toggle-menu.hidden {
+  display: none;
+}
+
+.toggle-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 8px;
+  gap: 6px;
+  padding: 8px;
+  background-color: var(--medium-bg);
+  border-radius: 6px;
+  border: 1px solid var(--dark-bg);
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  padding: 4px 0;
+}
+
+/* Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  margin-right: 12px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #fff;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 0 2px var(--primary-hover);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.toggle-label {
+  font-size: 0.95em;
+  color: var(--secondary-text);
+  white-space: nowrap;
+  user-select: none;
+  font-weight: 700;
+}
+
+/* Ticker Display */
+.copied-tickers-container {
+  width: 100%;
+  margin-top: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#copiedTickersList {
+  flex-grow: 1;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 0.85em;
+  line-height: 1.5;
+  padding: 8px;
+  background-color: var(--light-bg);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 0;
+  overflow-x: hidden;
+  word-break: break-word;
+}
+
+#copiedTickersList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#copiedTickersList::-webkit-scrollbar-track {
+  background: var(--medium-bg);
+  border-radius: 4px;
+}
+
+#copiedTickersList::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+#copiedTickersList::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+.ticker-group {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: var(--light-bg);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ticker-group-header {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--secondary-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.ticker-group-list {
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: var(--medium-bg);
+  border-radius: 4px;
+  font-size: 0.85em;
+  line-height: 1.5;
+  word-break: break-word;
+  color: #555;
+}
+
+.copy-group-button {
+  display: block;
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 6px;
+}
+
+.copy-group-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.copy-group-button:active {
+  background-color: var(--primary-active);
+  transform: scale(0.98);
+}
+
+/* Button Styles */
+.button-refresh {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 180px;
+  margin-top: 12px;
+  align-self: center;
+}
+
+.button-refresh:hover {
+  background-color: #0056cc;
+}
+
+.button-refresh:active {
+  background-color: #004bb5;
+  transform: scale(0.98);
+}
+
+.button-refresh:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Ticker Header */
+#tickerHeader {
+  font-size: 1.1em;
+  color: var(--secondary-text);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--dark-bg);
+  width: 100%;
+  text-align: left;
+}

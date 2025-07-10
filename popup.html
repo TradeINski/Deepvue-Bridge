@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deepvue Bridge</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 300px;
+    }
+  </style>
+  <link href="popup.css" rel="stylesheet">
+</head>
+<body class="popup">
+  <div class="deepvue-bridge-container">
+    <div class="header-with-menu">
+      <a class="tradeinski-header" href="https://linktr.ee/TradeINski" target="_blank">
+        TradeINski Deepvue Bridge
+      </a>
+      <button class="hamburger" id="menuToggle" title="Settings">☰</button>
+    </div>
+
+    <div class="hidden toggle-menu" id="settingsMenu">
+      <div class="toggle-row">
+        <div class="toggle-container">
+          <label class="switch" for="groupTickersToggle">
+            <input id="groupTickersToggle" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <span class="toggle-label">Group Tickers (30 per group)</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="button-refresh" id="reloadButton">Reload</button>
+
+    <div class="copied-tickers-container" id="copiedTickersContainer">
+      <h3 id="tickerHeader">Last Copied Tickers</h3>
+      <div id="copiedTickersList"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

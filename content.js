@@ -176,7 +176,7 @@ function addGlobalCopyButton() {
 }
 
 // Call this function periodically to ensure the button is added
-setInterval(addGlobalCopyButton, 2000);
+setInterval(addGlobalCopyButton, 1000); // <-- Interval changed to 1 sec
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.message === "clickAutoCopyWidget") {
